@@ -1,6 +1,7 @@
--------------------
-sidebar_position: 1
--------------------
+---
+sidebar_position: 2
+---
+
 ## Creating the class
 
 Before we start, here are some notes:
@@ -13,7 +14,7 @@ This is how we do it:
 ```lua
 local customClickDetector = require(path.to.customclickdetector)
 local myClickDetector = customClickDetector.new({
-    instance = workspace.Part
+    instance = workspace.Part -- "workspace.Part" can be any object inside workspace
 }) -- creates a new clickdetector class
 ```
 This does almost nothing yet. Atleast visually, so
@@ -77,4 +78,21 @@ customClickDetector.startLoop()
 ```
 ## Stopping classes and the custom clickdetector loop
 
-this one is pretty easy. but you might want to do it sometimes,
+This one is pretty easy. but you might want to do it sometimes,
+if you are ever in need to stop the loop or a specific class,
+do this
+```lua
+local myClickDetector = customClickDetector.new({
+    instance = workspace.Part
+})
+local myOtherClickDetector = customClickDetector.new({
+    instance = workspace.Part2
+})
+myClickDetector.mouseDown:Connect(function()
+   print("Hello world")
+end)
+customClickDetector.startLoop()
+task.wait(15)
+print("Stopping the loop")
+customClickDetector.stopLoop()
+```

@@ -1,3 +1,8 @@
+---
+sidebar_position: 1
+---
+
+
 <h1 align="center">customclickdetector</h1>
 <div align="center">
    custom click detectors with raycasts

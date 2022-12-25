@@ -21,6 +21,9 @@ function class:_cleanup()
         class.mouseLeave
     )
 end
+function class:changeInstance(instance)
+    self.instance = instance
+end
 class.mouseDown = fastSignal.new()
 class.rightMouseDown = fastSignal.new()
 class.mouseUp = fastSignal.new()
