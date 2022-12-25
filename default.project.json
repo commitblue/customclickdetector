@@ -1,0 +1,14 @@
+{
+  "name": "customclickdetector",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "customclickdetector": {
+        "$path": "src",
+        "Packages": {
+          "$path": "Packages"
+        }
+      }
+    }
+  }
+}

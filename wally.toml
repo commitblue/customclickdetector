@@ -1,0 +1,9 @@
+[package]
+name = "commitblue/customclickdetector"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+include = ["src"]
+
+[dependencies]
+fastSignal = "lucasmzreal/fastsignal@10.2.1"
