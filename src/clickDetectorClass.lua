@@ -1,11 +1,17 @@
 --!strict
 local fastSignal = require(script.Parent.Packages.fastSignal)
-local class = {}
-class.__index = class
-function class:_returnSelf()
+--[=[
+    @class clickDetectorClass
+
+    This class is created by module.new.
+    Class that contains hovericon, events.
+]=]
+local clickDetectorClass = {}
+clickDetectorClass.__index = clickDetectorClass
+function clickDetectorClass:_returnSelf()
     return self
 end
-function class:_cleanup()
+function clickDetectorClass:_cleanup()
     local function signalWrapper(...)
         for _,signal in {...} do
             signal:DisconnectAll()
@@ -13,21 +19,27 @@ function class:_cleanup()
         end
     end
     signalWrapper(
-        class.mouseDown, 
-        class.rightMouseDown, 
-        class.mouseUp,
-        class.rightMouseUp,
-        class.mouseEnter,
-        class.mouseLeave
+        clickDetectorClass.mouseDown, 
+        clickDetectorClass.rightMouseDown, 
+        clickDetectorClass.mouseUp,
+        clickDetectorClass.rightMouseUp,
+        clickDetectorClass.mouseEnter,
+        clickDetectorClass.mouseLeave
     )
 end
-function class:changeInstance(instance)
+--[=[
+    @within clickDetectorClass
+    Whenever you parent an object to another one, this function is handy.
+    
+    @param instance Instance
+]=]
+function clickDetectorClass:changeInstance(instance)
     self.instance = instance
 end
-class.mouseDown = fastSignal.new()
-class.rightMouseDown = fastSignal.new()
-class.mouseUp = fastSignal.new()
-class.rightMouseUp = fastSignal.new()
-class.mouseEnter = fastSignal.new()
-class.mouseLeave = fastSignal.new()
-return class
+clickDetectorClass.mouseDown = fastSignal.new()
+clickDetectorClass.rightMouseDown = fastSignal.new()
+clickDetectorClass.mouseUp = fastSignal.new()
+clickDetectorClass.rightMouseUp = fastSignal.new()
+clickDetectorClass.mouseEnter = fastSignal.new()
+clickDetectorClass.mouseLeave = fastSignal.new()
+return clickDetectorClass

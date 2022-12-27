@@ -76,7 +76,7 @@ myClickDetector.mouseDown:Connect(function(rayCalculated)
 end)
 customClickDetector.startLoop()
 ```
-## Stopping classes and the custom clickdetector loop
+## Stopping the custom clickdetector loop
 
 This one is pretty easy. but you might want to do it sometimes,
 if you are ever in need to stop the loop or a specific class,
@@ -95,4 +95,36 @@ customClickDetector.startLoop()
 task.wait(15)
 print("Stopping the loop")
 customClickDetector.stopLoop()
+task.wait(5)
+print("restarted")
+customClickDetector.startLoop()
 ```
+
+## Destroying customclickdetector classes and the loop
+
+ok, in some cases you want to COMPLETELY remove classes or the loop, not just stop it.
+here is how:
+```lua
+local myClickDetector = customClickDetector.new({
+    instance = workspace.Part
+})
+local myOtherClickDetector = customClickDetector.new({
+    instance = workspace.Part2
+})
+myClickDetector.mouseDown:Connect(function()
+   print("Hello world")
+end)
+myOtherClickDetector.mouseDown:Connect(function()
+   print("Bye world")
+end)
+customClickDetector.startLoop()
+task.wait(15)
+print("other click detector is gone")
+myOtherClickDetector:destroy() -- destroys this specific class
+task.wait(5)
+print("whole loop is gone")
+customClickDetector:cleanup() -- destroys the whole loop
+```
+Note: this does not destroy the data class (the one which contains stuff like
+hoverIcon) because it can't.
+Instead, leave it to be garbage collected. Make sure it will be.
