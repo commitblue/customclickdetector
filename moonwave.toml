@@ -1,5 +1,5 @@
 title = "customclickdetector"
 gitRepoUrl = "https://github.com/commitblue/customclickdetector"
 [docusaurus]
-url = "https://customclickdetector.github.io"
-baseUrl = "/"
+url = "https://commitblue.github.io/"
+baseUrl = "/customclickdetector/"
