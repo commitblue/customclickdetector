@@ -3,4 +3,4 @@
 </h1>
 <div align="center">custom click detectors with raycasts</div>
 &nbsp;
-<div align="center">The docs can be found [here](https://commitblue.github.io/customclickdetector/)</div>
+<div align="center">The docs can be found <a href="https://commitblue.github.io/customclickdetector/">here</a></div>
